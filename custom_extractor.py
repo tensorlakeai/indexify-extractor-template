@@ -22,9 +22,6 @@ class MyExtractor(Extractor):
     name = "your-docker-hub-username/MyExtractor"
     description = "Description of the extractor goes here."
 
-    # Any python dependencies included in the extractor must be listed here.
-    python_dependencies = ["torch", "transformers"]
-
     # Any system dependencies that the python code here depends on needs to be listed here
     # We use Ubuntu base images, so any ubuntu package can be installed here.
     system_dependencies = []
@@ -47,14 +44,14 @@ class MyExtractor(Extractor):
             # you must specify the name of the field in the Feature.embedding call.
             # Feature.embedding(value=[1, 2, 3], name="my_embedding")
             Content.from_text(
-                text="Hello World", feature=Feature.embedding(values=[1, 2, 3])
+                text="Hello World", features=[Feature.embedding(values=[1, 2, 3])]
             ),
             Content.from_text(
-                text="Pipe Baz", feature=Feature.embedding(values=[1, 2, 3])
+                text="Pipe Baz", features=[Feature.embedding(values=[1, 2, 3])]
             ),
             Content.from_text(
                 text="Hello World",
-                feature=Feature.metadata(value=json.dumps({"key": "value"})),
+                features=[Feature.metadata({"key": "value"})],
             ),
         ]
 
