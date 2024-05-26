@@ -19,7 +19,7 @@ class InputParams(BaseModel):
 
 
 class MyExtractor(Extractor):
-    name = "your-docker-hub-username/MyExtractor"
+    name = "yourorgname/myextractor"
     description = "Description of the extractor goes here."
 
     # Any system dependencies that the python code here depends on needs to be listed here
